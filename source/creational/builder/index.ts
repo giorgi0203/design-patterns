@@ -1,7 +1,31 @@
+import { IRequestBuilder } from "./interfaces";
 import { Request } from "./request";
-import { RequestBuilder } from "./requestBuilder";
 
-const builder = new RequestBuilder();
+export class RequestBuilder implements IRequestBuilder {
+    public request: Request;
+    constructor() {
+        this.request = new Request();
+    }
 
-const request: Request = builder.forUrl("google.com").useMethod("GET").payload({ name: "giorgi" }).build();
-console.log({ request });
+    public forUrl(url: string) {
+        this.request.url = url;
+        return this;
+    }
+
+    public useMethod(method: string) {
+        this.request.method = method;
+        return this;
+    }
+
+    public payload(payload: object) {
+        this.request.payload = payload;
+        return this;
+    }
+
+    public build(): Request {
+        return this.request;
+    }
+
+}
+
+export default RequestBuilder;
