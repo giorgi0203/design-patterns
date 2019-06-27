@@ -1,1 +1,1 @@
-require("./build/builder");
+require("./build");

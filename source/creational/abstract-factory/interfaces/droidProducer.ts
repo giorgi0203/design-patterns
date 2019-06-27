@@ -1,3 +1,3 @@
-import { IDroid } from "./droid";
+import { IDroidFactory } from "./droidFactory";
 
-export type IDroidProducer = (kind: string) => IDroid;
+export type IDroidProducer = (kind: string) => IDroidFactory;
