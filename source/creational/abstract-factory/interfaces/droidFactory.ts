@@ -1,3 +1,3 @@
 import { IDroid } from "./droid";
 
-export type IDroidFactory = () => IDroid;
+export type IDroidFactory<T extends IDroid> = () => T;
